@@ -506,7 +506,7 @@ nas 10 sections
             <div class="grid">
 				
                 <div class="card">
-				  <h3>📋 <a href="#visao-geral"> Visão Geral </a></h3>
+				  <h3>📋 <a href="#visao-geral" class="nav-item" onclick="showSection('visao-geral', this)">Visão Geral</a></h3>
                     <p>Missão</p>
                     <p>Modelo de Operação</p>
                     <p>Objetivos Estratégicos</p>
@@ -518,7 +518,7 @@ nas 10 sections
 				
 				
                 <div class="card">
-                    <h3>🏗️ <a href="#estrutura"> Estrutura</a></h3>
+                    <h3>🏗️   <a href="#estrutura" class="nav-item" onclick="showSection('estrutura', this)">Estrutura</a></h3>
                     <p>Organograma</p>
                     <p>Papéis e Responsabilidades</p>
                     <p>Interações Chave</p>
@@ -526,7 +526,7 @@ nas 10 sections
 				
 				
 				<div class="card">
-                    <h3>👥 <a href="#governanca">Governança </a></h3>
+                    <h3>👥  <a href="#governanca" class="nav-item" onclick="showSection('governanca', this)">Governança</a></h3>
                     <p>Fluxo de Informação</p>
 					<p>Governança de Decisões</p>
 					<p>Autoridade e Autonomia do PMO</p>
@@ -535,7 +535,7 @@ nas 10 sections
 				
 				
 				  <div class="card">
-                <h3>📊 <a href="#kpis"> KPIs e Métricas </a></h3>
+                <h3>📊  <a href="#kpis" class="nav-item" onclick="showSection('kpis', this)">KPIs e Métricas</a></h3>
                   <p>Métricas de sucesso do PMO</p>
                     <p>KPIs de Monitoramento de Projetos</p>
 					 <p>Ciclo de Melhoria Contínua</p>
@@ -544,7 +544,7 @@ nas 10 sections
 				
 				
                 <div class="card">
-                    <h3>⚙️ <a href="#processos"> Processos </a></h3>
+                    <h3>⚙️  <a href="#processos" class="nav-item" onclick="showSection('processos', this)">Processos</a></h3>
                     <p>Ciclo de Vida dos Projetos </p>
 					 <p>Fases e Entregáveis </p>
 					 <p>Fluxogramas dos Processos</p>
@@ -554,25 +554,19 @@ nas 10 sections
 			
 				
                 <div class="card">
-                    <h3>🛠️ <a href="#ferramentas"> Ferramentas </a></h3>
-                    <p>Plataformas e tecnologias utilizadas para gestão de projetos e colaboração.</p>
+                    <h3>🛠️   <a href="#ferramentas" class="nav-item" onclick="showSection('ferramentas', this)">Ferramentas e Templates</a></h3>
+                    <p>Plataformas utilizadas e modelos padronizados para documentação e gestão dos Projetos</p>
                 </div>
 				
-            
-               
-                <div class="card">
-                    <h3>📄 <a href="#templates">Templates </a></h3>
-                    <p>Modelos padronizados para documentação e gestão dos projetos.</p>
-                </div>
 				
               <div class="card">
-                <h3>📎  <a href="#anexos">Anexos e Glossário</a></h3>
+                <h3>📎     <a href="#anexos" class="nav-item" onclick="showSection('anexos', this)">Anexos e Glossário</a></h3>
                   <p>Documentos de referência</p>
                     <p>Glossário</p>
                 </div>
 				
 				<div class="card">
-                    <h3>🏗️  <a href="#roadmap">Roadmap </a></h3>
+                    <h3>🏗️   <a href="#roadmap" class="nav-item" onclick="showSection('roadmap', this)">Roadmap</a></h3>
                   <p>Documentação para Desesenvolvimento Futuro.</p>
                 </div>
 				
@@ -713,9 +707,11 @@ nas 10 sections
 <!-- Seção: Estrutura-->
 			
                 <section id="estrutura" class="section active">
-					    <h3>&nbsp;</h3>
       					  <p>&nbsp;</p>
       					  <p>&nbsp;</p>
+					       <p>&nbsp;</p>
+					 <p>&nbsp;</p>
+
         <h2>Estrutura</h2>
                     <p>A estrutura do PMO da X-Via é projetada para ser ágil e adaptável, suportando o crescimento da empresa e promovendo uma cultura de gestão de projetos eficiente e colaborativa. O PMO atua como um centro de excelência, fornecendo suporte, padronização e governança para todos os projetos da X-Via.</p>
 
@@ -912,7 +908,7 @@ nas 10 sections
 		
 		
       <section id="kpis" class="section active">
-					    <h3>&nbsp;</h3>
+					     <p>&nbsp;</p>
       					  <p>&nbsp;</p>
       					  <p>&nbsp;</p>
                     <h2>KPIs e Métricas</h2>
@@ -992,10 +988,9 @@ nas 10 sections
 <!-- Seção: Processos -->
 		
       <section id="processos" class="section active">
-					    <h3>&nbsp;</h3>
+					     <p>&nbsp;</p>
       					  <p>&nbsp;</p>
-	    <p>&nbsp;</p>
-                    <h2>Processos                    </h2>
+                    <h2>Processos</h2>
                     <p>A Estrutura Analítica do Projeto (EAP) detalha os entregáveis de cada fase do projeto:</p>
                     <p>&nbsp;</p>
 		  
@@ -1373,7 +1368,7 @@ nas 10 sections
 		
 		
       <section id="ferramentas" class="section active">
-					    <h3>&nbsp;</h3>
+					    <p>&nbsp;</p>
       					  <p>&nbsp;</p>
       					  <p>&nbsp;</p>
                     <h2>Ferramentas e Templates</h2>
@@ -1500,7 +1495,7 @@ nas 10 sections
 		
 		
       <section id="roadmap" class="section active">
-					    <h3>&nbsp;</h3>
+					    
       					  <p>&nbsp;</p>
 	    <p>&nbsp;</p>
                     <h2>Roadmap</h2>
@@ -1524,7 +1519,7 @@ nas 10 sections
 
 	
 
-<!-- SCRIPT
+
 
     <script>
         function showSection(sectionId, navItem) {
@@ -1640,7 +1635,7 @@ nas 10 sections
             showSection('bem-vindo');
         });
 		
-    </script>  -->
+    </script> 
 </body>
 </html>
 
