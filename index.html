@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Operacional do PMO - X-Via</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #032f5c 0%, #0c3d70 100%);
+            color: whitesmoke;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+		
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+           /* Navigation */
+        .nav-container {
+            background: #0f4985;
+            border-bottom: 2px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .nav-item {
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            background: #032f5c;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-item.active {
+            background: #667eea;
+            color: white;
+            border-color: #5a6fd8;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #032f5c;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #032f5c;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            color: #0c4886;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section h4 {
+            color: #0d3762;
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+		
+		  .section a {
+            color: #1c6fc4;
+            font-size: 1.4rem;
+			text-decoration: underline;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #1c6fc4;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+		
+		 .card a {
+            color: #1c6fc4;
+            font-size: 1rem;
+			text-decoration: underline;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .card h4 {
+            color: #0f549b;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a2c0ef 0%, #7a9cd1 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .grid-item {
+            background: #f7f8f8;
+            border: 1px solid #cbd2d8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem 0.25rem 0.25rem 0;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        .table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .list-styled {
+            list-style: disc;
+            margin-left: 1.5rem;
+        }
+
+        .list-styled li {
+            margin: 0.5rem 0;
+        }
+
+        .search-highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        /* Improved navigation */
+        .nav-item.active {
+            background: #667eea;
+            color: white;
+            border-color: #5a6fd8;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Better responsive design */
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                justify-content: center;
+            }
+
+            .search-input {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Enhanced table styles */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Improved image styles */
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1.5rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="https://static.wixstatic.com/media/10a644_51eb1574d6694eed962059fed92886fd~mv2.png/v1/fill/w_418,h_418,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20XVIA%20box%20slogan.png" alt="Logo X-Via" class="header-logo">
+            <div class="header-text">
+                <h1>Manual Operacional do PMO</h1>
+                <p>Escritório de Gestão Estratégica de Projetos - X-Via</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="nav">
+                <a href="#visao-geral" class="nav-item" onclick="showSection('visao-geral', this)">Visão Geral</a>
+                <a href="#estrutura" class="nav-item" onclick="showSection('estrutura', this)">Estrutura</a>
+				 <a href="#governanca" class="nav-item" onclick="showSection('governanca', this)">Governança</a>
+				 <a href="#kpis" class="nav-item" onclick="showSection('kpis', this)">KPIs e Métricas</a>
+                <a href="#processos" class="nav-item" onclick="showSection('processos', this)">Processos</a>
+                <a href="#ferramentas" class="nav-item" onclick="showSection('ferramentas', this)">Ferramentas e Templates</a>
+                <a href="#anexos" class="nav-item" onclick="showSection('anexos', this)">Anexos e Glossário</a>
+				  <a href="#roadmap" class="nav-item" onclick="showSection('roadmap', this)">Roadmap</a>
+            </div>
+        </div>
+    </nav>
+
+	
+	
+
+			
+    <div class="main-content">	
+    <div class="container">
+    <div class="content">
+            
+			
+<!-- PARA EXIBIR AS TELAS PARA EDIÇÃO, Substituir 
+
+DE: <section id="anexos" class="section">
+PARA: <section id="anexos" class="section active">
+
+nas 10 sections
+-->
+		
+		
+                
+		
+<!-- Seção: Bem-Vindo -->
+		
+		<section id="bem-vindo" class="section active">
+			
+  <h2>Bem-vindo ao Manual Operacional do PMO da X-Via</h2>
+			
+  <p>Este manual unificado integra todos os documentos essenciais para a operação do PMO da X-Via. Foi desenvolvido para ser um documento vivo, navegável e de fácil consulta para todos os stakeholders.  </p>
+
+			
+            <h3>📋 Conteúdo do Manual</h3>
+            <div class="grid">
+				
+                <div class="card">
+				  <h3>📋 <a href="#visao-geral"> Visão Geral </a></h3>
+                    <p>Missão</p>
+                    <p>Modelo de Operação</p>
+                    <p>Objetivos Estratégicos</p>
+                    <p>Princípios Norteadores</p>
+                    <p>Escopo de Atuação</p>
+                    <p>Serviços Oferecidos</p>
+                    <p>Resultados Esperados</p>
+                </div>
+				
+				
+                <div class="card">
+                    <h3>🏗️ <a href="#estrutura"> Estrutura</a></h3>
+                    <p>Organograma</p>
+                    <p>Papéis e Responsabilidades</p>
+                    <p>Interações Chave</p>
+                </div>
+				
+				
+				<div class="card">
+                    <h3>👥 <a href="#governanca">Governança </a></h3>
+                    <p>Fluxo de Informação</p>
+					<p>Governança de Decisões</p>
+					<p>Autoridade e Autonomia do PMO</p>
+					<p>Interação entre PMO e POs</p>
+				</div>
+				
+				
+				  <div class="card">
+                <h3>📊 <a href="#kpis"> KPIs e Métricas </a></h3>
+                  <p>Métricas de sucesso do PMO</p>
+                    <p>KPIs de Monitoramento de Projetos</p>
+					 <p>Ciclo de Melhoria Contínua</p>
+                </div>
+				
+				
+				
+                <div class="card">
+                    <h3>⚙️ <a href="#processos"> Processos </a></h3>
+                    <p>Ciclo de Vida dos Projetos </p>
+					 <p>Fases e Entregáveis </p>
+					 <p>Fluxogramas dos Processos</p>
+                    <p>Comunicação e Checkpoints</p>
+                </div>
+				
+			
+				
+                <div class="card">
+                    <h3>🛠️ <a href="#ferramentas"> Ferramentas </a></h3>
+                    <p>Plataformas e tecnologias utilizadas para gestão de projetos e colaboração.</p>
+                </div>
+				
+            
+               
+                <div class="card">
+                    <h3>📄 <a href="#templates">Templates </a></h3>
+                    <p>Modelos padronizados para documentação e gestão dos projetos.</p>
+                </div>
+				
+              <div class="card">
+                <h3>📎  <a href="#anexos">Anexos e Glossário</a></h3>
+                  <p>Documentos de referência</p>
+                    <p>Glossário</p>
+                </div>
+				
+				<div class="card">
+                    <h3>🏗️  <a href="#roadmap">Roadmap </a></h3>
+                  <p>Documentação para Desesenvolvimento Futuro.</p>
+                </div>
+				
+				
+            </div>
+            <div class="highlight">
+              <p><strong>Versão:</strong> 1.0 | <strong>Data:</strong> Junho 2025 | <strong>Responsável:</strong> Head do PMO</p>
+            </div>
+	  </section>
+			
+
+		
+		
+ <!-- Outras seções serão adicionadas aqui -->
+<!-- Seção: Visão Geral -->
+		
+      <section id="visao-geral" class="section active">
+        <h3>&nbsp;</h3>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+       
+        <h2>Visão Geral do PMO X-Via</h2>
+                    
+                    <div class="highlight">
+                      <h4>Missão do PMO</h4>
+                        <p>Estruturar e padronizar a gestão de projetos da X-Via, garantindo a excelência na entrega de soluções de governo digital e suportando o crescimento sustentável da empresa.</p>
+                    </div>
+
+                    <div class="grid">
+                        
+					  <div class="grid-item">
+                            <h4>🏗️ Modelo</h4>
+                            <p><span class="badge">Híbrido</span></p>
+                            <ul>
+                                <li><strong>Suporte:</strong> Ferramentas, templates, treinamento</li>
+                                <li><strong>Controle Leve:</strong> Padrões, monitoramento, visibilidade</li>
+                            </ul>
+                      </div>
+						
+                        <div class="grid-item">
+                            <h4> Objetivos</h4>
+                            <ul>
+                                <li>Padronizar processos e metodologias</li>
+                                <li>Garantir visibilidade dos projetos</li>
+                                <li>Alinhar projetos aos objetivos estratégicos</li>
+                                <li>Melhorar satisfação do cliente</li>
+                                <li>Promover aculturamento em gestão</li>
+                            </ul>
+                        </div>
+						
+						
+					  <div class="grid-item">
+                        <h4> Princípios Norteados</h4>
+                          <ul>
+                              <li>Transparência e comunicação aberta</li>
+                              <li>Melhoria contínua e adaptabilidade</li>
+                              <li>Foco no cliente e valor entregue</li>
+                              <li>Colaboração e trabalho em equipe</li>
+                              <li>Decisões baseadas em dados</li>
+                          </ul>
+                      </div>
+		
+        </div>
+
+			  <h3>Escopo de Atuação</h3>
+                    <div class="card">
+                        <p>O PMO atua em todos os projetos da X-Via, abrangendo:</p>
+                   <ul>
+                     <li><strong>Projetos Operacionais:</strong> Implantações e serviços diretamente relacionados aos clientes governamentais.</li>
+                     <li><strong>Projetos Internos Estratégicos:</strong> Iniciativas que visam o alcance dos objetivos e resultados-chave da X-Via.</li>
+                     <li><strong>Projetos de Inovação e P&D:</strong> Desenvolvimento de novos produtos e serviços, e pesquisa e desenvolvimento.</li>
+                     <li><strong>Projetos de Governança Corporativa:</strong> Iniciativas para padronização e melhoria de processos internos da empresa.                     </li>
+                   </ul>
+                    </div>
+		  
+		  	
+
+                    <h3>Serviços Oferecidos pelo PMO</h3>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <h4>Definição de Metodologias e Fluxos</h4>
+                            <p>Estabelecimento e disseminação de metodologias e fluxos de trabalho padronizados para a gestão de projetos.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Suporte na Estruturação, Kick-off e Encerramento</h4>
+                            <p>Apoio na fase inicial e final dos projetos, incluindo a estruturação e condução de reuniões de kick-off e learning.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Consolidação de Status e Riscos</h4>
+                            <p>Monitoramento e consolidação do status dos projetos e identificação e gestão de riscos.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Apoio Técnico aos POs e Líderes Técnicos</h4>
+                            <p>Suporte e orientação técnica aos Product Owners e Líderes Técnicos das Squads.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Mediação de Reuniões Estratégicas</h4>
+                            <p>Facilitação de reuniões estratégicas para alinhamento e tomada de decisões.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Criação de Painéis de Visibilidade</h4>
+                            <p>Desenvolvimento de dashboards e painéis para acompanhamento visual do portfólio de projetos.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Integração entre Áreas e Squads</h4>
+                            <p>Promoção da comunicação e colaboração entre as diferentes áreas e Squads da X-Via.</p>
+                        </div>
+                    </div>
+		  
+        <div class="card">
+                        <h4>🚀 Resultados Esperados</h4>
+                        <div class="grid">
+                            <div>
+                                <ul>
+                                    <li>Eficiência e padronização</li>
+                                    <li>Cultura forte em gestão</li>
+                                    <li>Base sólida para escalar</li>
+                                    <li>Alinhamento estratégico</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>Comunicação fluida</li>
+                                    <li>Decisões mais assertivas</li>
+                                    <li>Recursos bem utilizados</li>
+                                </ul>
+                            </div>
+                        </div>
+        </div>
+      </section>
+			
+		
+		
+
+			
+			
+			
+<!-- Seção: Estrutura-->
+			
+                <section id="estrutura" class="section active">
+					    <h3>&nbsp;</h3>
+      					  <p>&nbsp;</p>
+      					  <p>&nbsp;</p>
+        <h2>Estrutura</h2>
+                    <p>A estrutura do PMO da X-Via é projetada para ser ágil e adaptável, suportando o crescimento da empresa e promovendo uma cultura de gestão de projetos eficiente e colaborativa. O PMO atua como um centro de excelência, fornecendo suporte, padronização e governança para todos os projetos da X-Via.</p>
+
+                   
+
+                  <h3>Modelo de Entrega</h3>
+                    <div class="card">
+                        <ul>
+                            <li><strong>Modelo Híbrido:</strong> Atuação com foco em suporte e controle leve.</li>
+                            <li><strong>Plataforma Central:</strong> Utilização do Monday.com como ferramenta principal de gestão.</li>
+                            <li><strong>Relatórios Mensais:</strong> Status consolidado dos projetos para a alta gestão.</li>
+                            <li><strong>Integração com Áreas:</strong> Via reuniões e comitês para alinhamento contínuo.</li>
+                            <li><strong>Atuação Conjunta:</strong> Colaboração próxima com POs e Líderes Técnicos.</li>
+                        </ul>
+                    </div>
+
+                    <h3>Organograma</h3>
+                    <p>O PMO da X-Via é composto por uma equipe estratégica e multifuncional, desenhada para otimizar a gestão de projetos e garantir o alinhamento com os objetivos da empresa. Abaixo, o organograma proposto:</p>
+                    <img src="Organograma-PMO.png" alt="Organograma do PMO X-Via" class="responsive-image">
+
+					
+                    <h3>Papéis e Responsabilidades</h3>
+       			  <div class="grid">
+                    <div class="grid-item">
+                            <h4>Head do PMO</h4>
+                            <p> <h4>Foco:</h4>
+                        <p>Estratégia, governança e liderança do PMO, garantindo o alinhamento com os objetivos da X-Via e a evolução da maturidade em gestão de projetos.</p>
+                        <h4>Nível de Atuação:</h4>
+                        <p>Executivo, com reporte direto ao C-Level.</p>
+                      <h4>Responsabilidades:</h4>
+                      <ul>
+                          <li>Definir e implementar a estratégia do PMO.</li>
+                          <li>Gerenciar o portfólio de projetos da X-Via garantindo o alinhamento com os objetivos estratégicos para geração de valor.</li>
+                          <li>Garantir a governança e padronização dos processos de gestão de projetos.</li>
+                          <li>Liderar a equipe do PMO e promover seu desenvolvimento.</li>
+                          <li>Acompanhar iniciação e encerramento dos projetos do portfólio.</li>
+                          <li>Participar de reuniões estratégicas.</li>
+                          <li>Promover o aculturamento em gestão de projetos na organização.</li>
+                          <li>Atuar como ponto focal para a alta gestão em assuntos de projetos.</li>
+                          <li>Gerar os relatórios mensais para o board da X-Via e manter o Dashboard executivo sempre atualizado.</li>
+                      </ul>
+                      </p>
+                    </div>
+                        <div class="grid-item">
+                            <h4>Gerente de Projetos</h4>
+                            <p><h4>Foco:</h4>
+                        <p>Gestão de projetos operacionais para clientes governamentais, garantindo a satisfação e o sucesso das implantações e serviços.</p>
+                        <h4>Nível de Atuação:</h4>
+                        <p>Tático e operacional, com interação direta com PO e líderes Técnicos.</p>
+                        <h4>Responsabilidades:</h4>
+                        <ul>
+                            <li>Acompanhar e monitorar os projetos operacionais.</li>
+                            <li>Liderar a Iniciação  dos projetos.</li>
+                            <li>Fazer o gerenciamento financeiro dos projetos.</li>
+                            <li>Oferecer apoio aos POs e líderes técnicos.</li>
+                            <li>Participar de reuniões estratégicas.</li>
+                            <li>Monitorar escopo, prazo, custo e qualidade dos projetos.</li>
+                            <li>Manter a documentação dos projetos atualizada.</li>
+                            <li>Comunicar o status dos projetos aos stakeholders.</li>
+                            <li>Identificar e gerenciar riscos e problemas.</li>
+                            <li>Garantir a entrega dos projetos dentro das expectativas do cliente.</li>
+                            <li>Liderar o encerramento dos projetos.</li>
+                            <li>Colaborar na implementação de melhorias de processos.</li>
+                        </ul></p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Analista de Projetos</h4>
+                            <p> <h4>Foco:</h4>
+                        <p>Suporte à gestão de projetos internos (estratégicos, de governança e inovação), garantindo a organização e o fluxo das informações.</p>
+                        <h4>Nível de Atuação:</h4>
+                        <p>Operacional e de suporte, com foco na execução de processos e na organização de dados.</p>
+                        <h4>Responsabilidades:</h4>
+                        <ul>
+                            <li>Acompanhar e monitorar os projetos internos.</li>
+                            <li>Liderar a Iniciação  dos projetos.</li>
+                            <li>Fazer o gerenciamento financeiro dos projetos.                            </li>
+                            <li>Oferecer apoio aos POs.</li>
+                            <li>Participar de reuniões estratégicas.</li>
+                            <li>Monitorar escopo, prazo, custo e qualidade dos projetos.</li>
+                            <li>Manter a documentação dos projetos atualizada.</li>
+                            <li>Comunicar o status dos projetos aos stakeholders.</li>
+                            <li>Identificar e gerenciar riscos e problemas.</li>
+                            <li>Garantir a entrega dos projetos dentro das expectativas do cliente.</li>
+                            <li>Fazer o encerramento dos projetos.</li>
+                            <li>Colaborar na implementação de melhorias de processos.</li>
+                        </ul></p>
+                        </div>
+                  </div>
+     
+		
+
+                    <h3>Interações Chave</h3>
+                    <p>O PMO atua de forma transversal, interagindo com diversas áreas e stakeholders para garantir o sucesso dos projetos e o alinhamento estratégico:</p>
+                  <div class="grid">
+                        <div class="grid-item">
+                            <h4>POs e Líderes Técnicos</h4>
+                            <p>Colaboração próxima para suporte metodológico, ferramentas e governança, sem sobrepor as responsabilidades do PO no produto.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Heads das Áreas</h4>
+                            <p>Alinhamento estratégico, gestão de recursos e resolução de impedimentos em nível tático.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>C-Level</h4>
+                            <p>Reporte direto para alinhamento estratégico, tomada de decisões de alto nível e garantia de suporte executivo.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Área Comercial</h4>
+                            <p>Alinhamento de expectativas de novos clientes e suporte na análise de viabilidade de propostas.</p>
+                        </div>
+					  <div class="grid-item">
+                        <h4>Pós-Venda</h4>
+                            <p>Acompanhamento da satisfação dos clientes e identificação de novas oportunidades de negócio.</p>
+                            <p>Garantir o elo constante e saudável com a área de Novos Produtos e Inovação.</p>
+                      </div>
+                        <div class="grid-item">
+                            <h4>Área Financeira</h4>
+                            <p>Gestão orçamentária dos projetos e controle de custos.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Recursos Humanos</h4>
+                            <p>Capacitação, desenvolvimento de competências e apoio na alocação de talentos.</p>
+                        </div>
+                  </div>
+                </section>
+
+	
+	
+	
+		
+		
+<!-- Seção: Governança-->
+			
+                <section id="governanca" class="section active">
+					    <h3>&nbsp;</h3>
+      					  <p>&nbsp;</p>
+      					  <p>&nbsp;</p>
+        <h2>Governança</h2>
+                
+                  <p>A governança do PMO da X-Via é estruturada para garantir a clareza na tomada de decisões, o alinhamento estratégico dos projetos e a eficácia na alocação de recursos. Ela define como as decisões são tomadas, quem as toma e como a informação flui dentro da organização.</p>
+
+                    <h3>Fluxo de Informação</h3>
+                    <div class="card">
+                        <p>O PMO terá autoridade para consolidar informações de status, riscos, resultados e roadmap dos projetos em andamento. Os POs e Líderes Técnicos reportarão status operacionais por meio de templates e ciclos definidos. O PMO será responsável por gerar relatórios de progresso com dados confiáveis e de fácil leitura para os comitês executivos.</p>
+                    </div>
+
+                    <h3>Governança de Decisões</h3>
+                    <div class="card">
+                        <p>Para garantir clareza e agilidade na tomada de decisão, a seguinte estrutura de governança será adotada:</p>
+                        <ul>
+                            <li><strong>Processo de Escalação:</strong> Decisões que excedam a autonomia do Gerente de Projeto ou do PO serão escaladas primeiramente ao Head do PMO. Questões estratégicas ou que impactem múltiplos projetos/áreas serão levadas ao Comitê de Portfólio ou, se necessário, ao Comitê Executivo (C-Level).</li>
+                            <li><strong>Comitês de Governança:</strong>
+                                <ul>
+                                    <li><strong>Comitê de Portfólio (a ser estabelecido):</strong> Composto por representantes do PMO, lideranças de áreas chave (Tecnologia, Comercial, Financeiro, Inovação) para revisão periódica do portfólio, priorização estratégica e resolução de conflitos de recursos.</li>
+                                    <li><strong>Comitê Executivo (C-Level):</strong> Responsável por decisões de maior impacto estratégico, aprovação de grandes investimentos e resolução final de impasses.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Critérios de Priorização:</strong> A priorização de projetos considerará uma combinação de fatores, incluindo: alinhamento com os OKRs da X-Via, impacto no cliente (satisfação, retenção), retorno sobre o investimento (ROI) ou valor estratégico, urgência, dependências entre projetos e disponibilidade de recursos.</li>
+                            <li><strong>Aprovação de Mudanças Significativas:</strong> Mudanças que impactem significativamente o escopo, prazo, custo ou qualidade dos projetos deverão ser formalizadas através de um processo de solicitação de mudança, avaliadas pelo PMO e aprovadas conforme alçada definida (ex: Head do PMO para mudanças de médio impacto, Comitê de Portfólio para alto impacto).</li>
+                        </ul>
+                    </div>
+
+                    <h3>Autoridade e Autonomia do PMO</h3>
+                    <div class="card">
+                        <ul>
+                            <li>Autonomia para tomar decisões sobre processos, metodologias e ferramentas de gerenciamento de projetos;</li>
+                            <li>Autonomia para priorização de projetos dentro dos critérios definidos e até o ponto que não comprometa objetivos estratégicos ou prazos de entrega aos clientes;</li>
+                            <li>Autoridade para solicitar informações e reportes dos projetos de todas as áreas da organização.</li>
+                        </ul>
+                    </div> 
+					
+					   <h3>Interação PMO com Product Owners (POs) Operacionais</h3>
+                   
+                    <div class="card">
+                        <p>O PMO atuará como facilitador, mentor e provedor de governança e padronização para os POs e Squads, sem sobrepor o papel do PO.</p>
+                        <h4>Papéis Claramente Definidos:</h4>
+                        <ul>
+                            <li><strong>PMO:</strong> foco no "COMO" (metodologias, processos) e na saúde do portfólio;</li>
+                            <li><strong>PO:</strong> foco no "O QUÊ" e "PORQUÊ" do produto/projeto da Squad.</li>
+                        </ul>
+                        <p>O PMO fornecerá suporte estratégico aos POs através de metodologias, templates, ferramentas, treinamentos e comunidades de prática. Fluxos de informação estruturados serão estabelecidos entre Squads/POs e o PMO.</p>
+                    </div>
+                </section>
+
+		
+
+
+		
+		
+		
+			
+<!-- Seção: KPIs e Métricas -->
+		
+		
+		
+      <section id="kpis" class="section active">
+					    <h3>&nbsp;</h3>
+      					  <p>&nbsp;</p>
+      					  <p>&nbsp;</p>
+                    <h2>KPIs e Métricas</h2>
+                    <p>O PMO da X-Via monitorará um conjunto de Key Performance Indicators (KPIs) e métricas para avaliar o desempenho dos projetos, a eficácia dos processos e o alinhamento com os objetivos estratégicos da empresa. Esses indicadores fornecerão dados concretos para a tomada de decisões e a melhoria contínua.</p>
+
+                    <h3>Métricas de Sucesso do PMO</h3>
+                    <div class="card">
+                        <ul>
+                            <li><strong>Taxa de sucesso dos projetos:</strong> Avalia a proporção de projetos concluídos dentro do prazo, custo e escopo planejados.</li>
+                            <li><strong>Satisfação dos clientes:</strong> Medida através de pesquisas de satisfação (NPS) e feedback direto, refletindo a qualidade das entregas e o relacionamento.</li>
+                            <li><strong>Eficiência operacional e padronização:</strong> Indicadores relacionados à otimização de processos, redução de retrabalho e aderência às metodologias do PMO.</li>
+                            <li><strong>Visibilidade e controle do portfólio:</strong> Avalia a clareza e a disponibilidade das informações sobre o status, riscos e progresso dos projetos em nível de portfólio.</li>
+                            <li><strong>Percentual de contribuição dos projetos para o alcance dos objetivos estratégicos da empresa:</strong> Mede o impacto direto dos projetos nos OKRs e metas da X-Via.</li>
+                        </ul>
+                    </div>
+
+                    <h3>KPIs de Monitoramento de Projetos</h3>
+                    <p>Todos os projetos estratégicos devem ser monitorados via dashboard executivo. Os KPIs básicos a serem acompanhados são:</p>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <h4>Status do Projeto</h4>
+                            <ul>
+                                <li>Em Análise, Fila, Em Andamento, Standby, Concluído, Cancelado</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Recursos</h4>
+                            <ul>
+                                <li>Alocados</li>
+                                <li>Horas trabalhadas</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Prazo</h4>
+                            <ul>
+                                <li>Planejado x Real</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Entregas</h4>
+                            <ul>
+                                <li>Entregas-chave</li>
+                                <li>% de execução</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Dados Financeiros</h4>
+                            <ul>
+                                <li>Horas contratadas x utilizadas x previstas x saldo disponível</li>
+                                <li>Burn rate</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Satisfação do Cliente</h4>
+                            <ul>
+                                <li>NPS mensal (Net Promoter Score)</li>
+                            </ul>
+                        </div>
+                    </div>
+		  <h3>Ciclo de Melhoria Contínua</h3>
+                          <div class="card">
+                            <ul>
+                              <li><strong>Revisões Periódicas:</strong> Revisões trimestrais de processos e ferramentas para garantir a relevância e eficácia.</li>
+                              <li><strong>Coleta de Feedback:</strong> Mecanismos para coletar feedback das áreas e Squads sobre a atuação do PMO.</li>
+                              <li><strong>Acompanhamento da Maturidade:</strong> Monitoramento contínuo da maturidade em gestão de projetos da X-Via.</li>
+                              <li><strong>Atualização do Modelo:</strong> Adaptação do modelo do PMO conforme o crescimento e as necessidades da empresa.</li>
+                            </ul>
+                          </div>
+      </section>
+
+		
+		
+		
+		
+		
+		
+<!-- Seção: Processos -->
+		
+      <section id="processos" class="section active">
+					    <h3>&nbsp;</h3>
+      					  <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+                    <h2>Processos                    </h2>
+                    <p>A Estrutura Analítica do Projeto (EAP) detalha os entregáveis de cada fase do projeto:</p>
+                    <p>&nbsp;</p>
+		  
+		  
+		  
+                   <h3>1.0 Iniciação</h3> 
+        <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>1.0 Iniciação</th>
+        <th>Detalhamento</th>
+        <th>Responsável</th>
+        <th>Participantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1.1 Assinatura do Contrato</td>
+        <td>Revisão e assinatura do contrato pelo Jurídico</td>
+        <td>Jurídico</td>
+        <td>Pré-Vendas</td>
+      </tr>
+      <tr>
+        <td>1.2 Planejamento de recebíveis</td>
+        <td>Definir cronograma de recebíveis</td>
+        <td>Pré-Vendas</td>
+        <td>Financeiro</td>
+      </tr>
+       <tr>
+        <td>1.3 Designação formal do PM, Líder Técnico e PO</td>
+        <td>Registrar nomeações</td>
+        <td>Head PMO</td>
+        <td>PMO, PO, Líder Técnico e Pré-Vendas</td>
+      </tr>
+		<tr>
+        <td>1.4 Identificação e registro dos stakeholders</td>
+        <td>Mapear e documentar partes interessadas</td>
+        <td>Pré-Vendas</td>
+        <td>Head PMO</td>
+      </tr>
+      <tr>
+        <td>1.5 Desenvolver e Apresentar TAP / Handover Pré-Vendas &gt; Projetos</td>
+        <td>Alinhar expectativas</td>
+        <td>Pré-Vendas</td>
+        <td>Comercial,  PMO, Líder Técnico e PO</td>
+      </tr>
+      <tr>
+        <td>1.6 Elaboração do Escopo e Cronograma Macro</td>
+        <td>Descrever entregáveis e marcos no TAP</td>
+        <td>PO</td>
+        <td>Líder Técnico, PMO e Pré-Vendas</td>
+      </tr>
+      <tr>
+        <td>1.7 Checklist de Assets</td>
+        <td>Verificar materiais de entrada necessários</td>
+        <td>Líder Técnico</td>
+        <td>Pré-Vendas e PO</td>
+      </tr>
+      <tr>
+        <td>1.8 Kick-off técnico com equipe interna</td>
+        <td>Apresentar escopo e responsabilidades técnicas</td>
+        <td>Líder Técnico</td>
+        <td>PO, Equipe de Desenvolvimento e QA</td>
+      </tr>
+      <tr>
+        <td>1.9 Kick-off com o cliente</td>
+        <td>Alinhar cronograma, escopo e comunicação</td>
+        <td>PO</td>
+        <td>Cliente, Líder Técnico, PMO e Pré-Vendas</td>
+      </tr>
+	</tbody>
+  </table>
+		
+			
+			
+			<p>&nbsp;</p>
+		  
+		  
+		  
+                   <h3>2.0 Planejamento</h3> 
+			<table class="table">
+    <thead>
+      <tr>
+        <th>2.0 Planejamento</th>
+        <th>Detalhamento</th>
+        <th>Responsável</th>
+        <th>Participantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      	<tr>
+        <td>2.1 Detalhamento do Escopo Técnico</td>
+        <td>Definir funcionalidades e requisitos em documento</td>
+        <td>PO</td>
+        <td>Líder Técnico, Equipe Técnica e Gerente de Projetos</td>
+      </tr>
+      <tr>
+        <td>2.2 Estimativas e Cronograma Detalhado</td>
+        <td>Montar e validar as estimativas e cronograma com datas e responsáveis</td>
+        <td>PO</td>
+        <td>Líder Técnico, Equipe Técnica e Gerente de Projetos</td>
+      </tr>
+      <tr>
+        <td>2.3 Identificação de Riscos</td>
+        <td>Listar riscos e definir planos de contingência</td>
+        <td>PO</td>
+        <td>Líder Técnico, Equipe Técnica e Gerente de Projetos</td>
+      </tr>
+      <tr>
+        <td>2.4 Alocação de Recursos</td>
+        <td>Reservar pessoas, ferramentas e estimar tempo</td>
+        <td>PO</td>
+        <td>Líder Técnico e Gerente de Projetos</td>
+      </tr>
+	</tbody>
+  </table>
+		
+			
+			
+			
+			
+			<p>&nbsp;</p>
+		  
+		  
+		  
+                   <h3>3.0 Execução</h3> 
+			<table class="table">
+    <thead>
+      <tr>
+        <th>3.0 Execução</th>
+        <th>Detalhamento</th>
+        <th>Responsável</th>
+        <th>Participantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      	<tr>
+        <td>3.1 Execução e acompanhamento das demandas</td>
+        <td>Dailys, Backlog e Sprints</td>
+        <td>PO</td>
+        <td>Líder Técnico, Equipe Técnica</td>
+      </tr>
+      <tr>
+        <td>3.2 Atualização contínua das documentações</td>
+        <td>Escopo, Cronograma, Backlog, Matrizes</td>
+        <td>PO</td>
+        <td>Líder Técnico</td>
+      </tr>
+      <tr>
+        <td>3.3 Controle financeiro do projeto</td>
+        <td>Burn Rate, Horas, Notas Fiscais e Cobranças</td>
+        <td>Gerente de Projetos</td>
+        <td>Financeiro</td>
+      </tr>
+      <tr>
+        <td>3.4 Status Report</td>
+        <td>Elaboração e envio de Status Report Semanal</td>
+        <td>PO</td>
+        <td>Cliente e Gerente de Projetos</td>
+      </tr>
+		  <tr>
+        <td>3.5 NPS</td>
+        <td>Envio da Pesquisa Mensal aos Stakeholders (cliente)</td>
+        <td>Gerente de Projetos</td>
+        <td> Cliente</td>
+      </tr>
+		<tr>
+        <td>3.6 Validação Interna e QA</td>
+        <td>Elaboração e envio de Status Report Semanal</td>
+        <td>QA</td>
+        <td> Líder Técnico, PO e Equipe Técnica</td>
+      </tr>
+		<tr>
+        <td>3.7 Ajustes de QA</td>
+        <td>Elaboração e envio de Status Report Semanal</td>
+        <td>PO</td>
+        <td>QA, PO e Líder Técnico</td>
+      </tr>
+	</tbody>
+  </table>
+			
+		
+			
+			
+			
+			<p>&nbsp;</p>
+		  
+		  
+		  
+                   <h3>4.0 Homologação e Publicação</h3> 
+			<table class="table">
+    <thead>
+      <tr>
+        <th>4.0 Homologação e Publicação</th>
+        <th>Detalhamento</th>
+        <th>Responsável</th>
+        <th>Participantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      	<tr>
+        <td>4.1 Homologação com Cliente</td>
+        <td>Fluxo de Homologação</td>
+        <td>PO</td>
+        <td>Cliente, Líder Técnico e Equipe Técnica</td>
+      </tr>
+      <tr>
+        <td>4.2 Ajustes pós-homologação</td>
+        <td>Ajustes</td>
+        <td>Equipe Técnica</td>
+        <td>Líder Técnico e PO</td>
+      </tr>
+      <tr>
+        <td>4.3 Deploy</td>
+        <td>Deploy em produção e testes finais</td>
+        <td>Equipe Técnica</td>
+        <td>QA, Líder Técnico e PO</td>
+      </tr>
+	</tbody>
+  </table>	
+		
+			
+			
+			
+			
+			<p>&nbsp;</p>
+		  
+		  
+		  
+                   <h3>5.0 Capacitação Cliente</h3> 
+			<table class="table">
+    <thead>
+      <tr>
+        <th>5.0 Capacitação Cliente</th>
+        <th>Detalhamento</th>
+        <th>Responsável</th>
+        <th>Participantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      	<tr>
+        <td>5.1 Desenvolvimento dos materiais</td>
+        <td>Desenvolver os materiais de capacitação</td>
+        <td>PO</td>
+        <td>Líder Técnico e Gerente de Projetos</td>
+      </tr>
+      <tr>
+        <td>5.2 Workshop</td>
+        <td>Realização de workshop ou treinamento com o cliente</td>
+        <td>PO</td>
+        <td>Líder Técnico e Gerente de Projetos</td>
+      </tr>
+	</tbody>
+  </table>
+			
+			
+			
+			
+			
+			
+			<p>&nbsp;</p>
+		  
+		  
+		  
+                   <h3>6.0 Encerramento</h3> 
+			<table class="table">
+    <thead>
+      <tr>
+        <th>6.0 Encerramento</th>
+        <th>Detalhamento</th>
+        <th>Responsável</th>
+        <th>Participantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      	<tr>
+        <td>6.1 Conclusão Formal do Projeto</td>
+        <td>Preencher checklist de encerramento</td>
+        <td>PO</td>
+        <td>Líder Técnico e Gerente de Projetos</td>
+      </tr>
+      <tr>
+		<td>6.2 Pesquisa de satisfação com cliente</td>
+        <td>Aplicação de pesquisa de satisfação com cliente</td>
+        <td>Gerente de Projetos</td>
+        <td>Cliente</td>
+      </tr>
+		  <tr>
+		<td>6.3 Coleta de lições aprendidas</td>
+        <td>Learning Meeting + Jamboard</td>
+        <td>Gerente de Projetos</td>
+        <td>PO + Head PMO + Líder Técnico + Equipe Técnica + QA + Pré-Vendas + Pós-Vendas + Comercial</td>
+      </tr>
+		  <tr>
+		<td>6.4 Relatório Executivo</td>
+        <td>Elaboração e Envio</td>
+        <td>Gerente de Projetos</td>
+        <td>Head PMO</td>
+      </tr>
+
+	</tbody>
+  </table>
+</div>
+
+                         <p>&nbsp;</p>
+                          <h2>Comunicação e Checkpoints</h2>
+	    <h3>Reuniões</h3>
+                          <ul>
+                            <li><strong>Planning (Início de cada Sprint):</strong>
+                              <ul>
+                                <li>Participantes: Product Owner (PO) e Time de Desenvolvimento.</li>
+                                <li>Objetivo: Planejar o trabalho da Sprint, selecionar itens do Backlog e criar o Backlog da Sprint.<br>
+                                  <br>
+                                </li>
+                              </ul>
+                            </li>
+                            <li><strong>Daily (Diariamente):</strong>
+                              <ul>
+                                <li>Participantes: Product Owner (PO) e Time de Desenvolvimento.</li>
+                                <li>Objetivo: Sincronizar as atividades do time e criar um plano para as próximas 24 horas.<br>
+                                  <br>
+                                </li>
+                              </ul>
+                            </li>
+							   <li><strong>Review (Final de cada Sprint):</strong>
+                              <ul>
+                                <li>Participantes: Product Owner (PO) e Time de Desenvolvimento</li>
+                                <li>Objetivo: Demonstrar o incremento da Sprint, obter feedback e adaptar o Backlog do Produto.<br>
+                                  <br>
+                                </li>
+                              </ul>
+                            </li>
+                        
+                            <li><strong>Checkpoints Quinzenais PMO:</strong>
+                              <ul>
+                                <li>Participantes: Gerente de Projetos e Portfólio (do PMO) e Product Owner (PO).</li>
+                                <li>Objetivo: Alinhamento do PMO com o projeto, identificação de desafios, suporte e verificação da aplicação dos padrões.<br>
+                                  <br>
+                                </li>
+                              </ul>
+                            </li>
+                           
+                            <li><strong>Alinhamentos Pontuais com Stakeholders:</strong>
+                              <ul>
+                                <li>Participantes: Depende da necessidade, pode incluir o PO, membros do time, representantes do PMO, etc.</li>
+                                <li>Objetivo: Resolver questões específicas e garantir o alinhamento com os stakeholders.                        </li>
+                              </ul>
+								
+								 <h3>Acompanhamentos</h3>
+						    <li><strong>Status Reports Semanais:</strong>
+                              <ul>
+                                <li>Participantes: Product Owner (PO). </li>
+                                <li>Destinatário: Cliente.</li>
+                                <li>Objetivo: Informar o cliente sobre o progresso do projeto.<br>
+                                  <br>
+                                </li>
+                              </ul>
+                            </li>
+							  <li><strong>Atualização Mensal do Dashboard Executivo:</strong>
+                              <ul>
+                                <li>Participantes: Head de PMO. </li>
+                                <li>Destinatários: Liderança da X-Via.</li>
+                                <li>Objetivo: Fornecer uma visão geral do portfólio de projetos para a alta gestão.</li>
+                              </ul>
+                            </li>
+                            </li>
+        </ul>	             
+      </section>
+
+		
+		
+		
+<!-- Seção: Ferramentas -->
+		
+		
+      <section id="ferramentas" class="section active">
+					    <h3>&nbsp;</h3>
+      					  <p>&nbsp;</p>
+      					  <p>&nbsp;</p>
+                    <h2>Ferramentas e Templates</h2>
+                    <p>A X-Via utiliza um conjunto de ferramentas e tecnologias para otimizar a gestão de projetos e a colaboração entre as equipes. A plataforma central para a gestão de projetos é o Monday.com, complementado por outras ferramentas para comunicação, documentação e desenvolvimento.</p>
+
+                    <h3>Plataforma Central de Gestão de Projetos</h3>
+                    <div class="card">
+                        <h4>Monday.com</h4>
+                        <p>O Monday.com é a ferramenta principal para o gerenciamento dos projetos.</p>
+                    </div>
+
+                    <div class="grid">
+                        <div class="grid-item">
+                            <h4>Comunicação</h4>
+                            <ul>
+                       
+                                <li><strong>Google Chat:</strong> Para comunicação rápida e colaboração em tempo real.</li>
+								 <li><strong>Google Meet:</strong> Para reuniões online e videoconferências.</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Documentação e Colaboração</h4>
+                            <ul>
+                                <li><strong>Google Drive:</strong> Para armazenamento e compartilhamento de documentos, planilhas e apresentações.</li>
+                                <li><strong>Miro:</strong> Para desenho de fluxos e processos</li>
+								<li><strong>Jamboard:</strong> Para sessões de brainstorming e colaboração visual.</li>
+                            </ul>
+                        </div>
+                        
+                       
+                    </div>
+               
+      					
+      					  <p>&nbsp;</p>
+                    <h2>Templates</h2>
+                    <p>O PMO da X-Via disponibiliza uma série de templates e modelos padronizados para auxiliar na gestão de projetos, garantindo consistência, eficiência e qualidade na documentação. O uso desses templates é fundamental para a padronização e o sucesso dos projetos.</p>
+                  
+                    <div class="grid">
+                        <div class="grid-item">
+                            <h4>TAP (Termo de Abertura do Projeto)</h4>
+                            <p>Documento formal que autoriza o início de um projeto, definindo seus objetivos, escopo inicial, stakeholders e gerente de projeto.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Registro de Stakeholders</h4>
+                            <p>Template para identificar e registrar todas as partes interessadas do projeto, suas expectativas e seu nível de influência.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>RACI (Matriz de Responsabilidade)</h4>
+                            <p>Matriz para definir claramente os papéis e responsabilidades (Responsible, Accountable, Consulted, Informed) de cada membro da equipe em relação às atividades do projeto.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Kick-off (Apresentação e Ata)</h4>
+                            <p>Modelos para a apresentação de início do projeto e para o registro das decisões e próximos passos da reunião de kick-off.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Escopo Técnico</h4>
+                            <p>Template para detalhar o escopo técnico do projeto, incluindo funcionalidades, requisitos e entregáveis específicos.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Cronograma</h4>
+                            <p>Modelos de cronograma para planejamento e acompanhamento das atividades do projeto, com marcos e prazos definidos.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Status Report</h4>
+                            <p>Template para relatórios periódicos de status do projeto, informando o progresso, riscos, problemas e próximos passos aos stakeholders.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Pesquisa de Satisfação do Cliente</h4>
+                            <p>Modelo de questionário para coletar feedback dos clientes sobre as entregas e o relacionamento com a X-Via.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Relatório Executivo de Encerramento</h4>
+                            <p>Template para o relatório final do projeto, resumindo os resultados, lições aprendidas e a performance geral.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Checklist de Encerramento de Projeto</h4>
+                            <p>Lista de verificação para garantir que todas as atividades necessárias para o encerramento formal de um projeto sejam concluídas.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Registro de Lições Aprendidas</h4>
+                            <p>Template para documentar as lições aprendidas ao longo do projeto, visando a melhoria contínua dos processos e futuras iniciativas.</p>
+                        </div>
+                    </div>
+      </section>
+
+		
+		
+		
+	
+<!-- Seção: Anexos -->
+		
+		
+      <section id="anexos" class="section active">
+					    <h3>&nbsp;</h3>
+      					  <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+                    <h2>Anexos e Glossário                    </h2>
+                    <h3>Documentos de Referência:</h3>
+                    <div class="card">
+                      <ul>
+                          <li><strong><a href="https://docs.google.com/document/d/1rqZzvvLj_JAGEa4o9W-WiU5AapMk3ye-_sgJyODAv1A/edit?usp=sharing" target="_blank">Mandato Formal do Escritório de Projetos (PMO) - X-Via</a>:</strong> Documento que autoriza formalmente a existência do PMO, define seu escopo, autoridade e responsabilidades.</li>
+                          <li><strong><a href="https://drive.google.com/file/d/1QwMo8OYDWo0_HH1jJfHko5T7uW9cDIu2/view?usp=sharing" target="_blank">Proposta de Implantação do PMO na X-Via</a>:</strong> Documento inicial que apresentou a proposta de estruturação do PMO para o C-Level.</li>
+                      </ul>
+                    </div>
+					
+		 			 <h3>Glossário:</h3>
+                    <div class="card">
+                      
+                        <ul>
+                            <li><strong>TAP:</strong> Termo de Abertura do Projeto</li>
+                            <li><strong>RACI:</strong> Matriz de Responsabilidade (Responsible, Accountable, Consulted, Informed)</li>
+                            <li><strong>QA:</strong> Quality Assurance (Garantia de Qualidade)</li>
+                            <li><strong>NPS:</strong> Net Promoter Score (Índice de Satisfação do Cliente) </li>
+                            <li><strong>Burn Rate:</strong> Velocidade de consumo de horas/recurso do projeto</li>
+                            <li><strong>Jamboard: </strong>Ferramenta visual para colaboração de equipe (Google)</li>
+                        </ul>
+                    </div>
+		
+      </section>
+	
+	
+	
+	<!-- Seção: Roadmap -->
+		
+		
+      <section id="roadmap" class="section active">
+					    <h3>&nbsp;</h3>
+      					  <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+                    <h2>Roadmap</h2>
+                   
+        <h3>Documentação para Desenvolver:</h3>
+                    <div class="card">
+                     
+                        <ul>
+                          <li><strong>Playbook de Processos e Metodologias:</strong> Documento mais aprofundado sobre os processos e metodologias de gestão de projetos, com fluxogramas e exemplos práticos.</li>
+                            <li><strong>Guia de Interação PMO-POs:</strong> Detalhamento das melhores práticas para a colaboração entre o PMO e os Product Owners das Squads.</li>
+                            <li><strong>Manual de Onboarding para Novos Colaboradores do PMO:</strong> Guia detalhado para a integração de novos membros à equipe do PMO.</li>
+                            <li><strong>Plano de Comunicação do PMO:</strong> Estratégia detalhada para a comunicação interna e externa das iniciativas e resultados do PMO.</li>
+                 
+                        </ul>
+                    </div>
+      </section>
+    </div>
+    </div>
+	</div>
+	
+
+	
+
+<!-- SCRIPT
+
+    <script>
+        function showSection(sectionId, navItem) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            if (navItem) {
+                navItem.classList.add('active');
+            } else {
+                // Find and activate the corresponding nav item
+                const targetNav = document.querySelector(`[href="#${sectionId}"]`);
+                if (targetNav) targetNav.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function searchContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const sections = document.querySelectorAll('.section');
+            const searchResults = [];
+            
+            if (searchTerm === '') {
+                // Clear previous highlights
+                clearHighlights();
+                return;
+            }
+            
+            // Clear previous highlights
+            clearHighlights();
+            
+            // Search through all sections
+            sections.forEach(section => {
+                const content = section.textContent.toLowerCase();
+                if (content.includes(searchTerm)) {
+                    searchResults.push(section.id);
+                    // Highlight the search term
+                    highlightSearchTerm(section, searchTerm);
+                }
+            });
+            
+            // Show first result if found
+            if (searchResults.length > 0) {
+                showSection(searchResults[0]);
+                // Update navigation to reflect the active section
+                const navItems = document.querySelectorAll('.nav-item');
+                navItems.forEach(item => item.classList.remove('active'));
+                const activeNav = document.querySelector(`[href="#${searchResults[0]}"]`);
+                if (activeNav) activeNav.classList.add('active');
+            }
+        }
+
+        function highlightSearchTerm(section, searchTerm) {
+            const walker = document.createTreeWalker(
+                section,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            const textNodes = [];
+            let node;
+            
+            while (node = walker.nextNode()) {
+                if (node.textContent.toLowerCase().includes(searchTerm)) {
+                    textNodes.push(node);
+                }
+            }
+            
+            textNodes.forEach(textNode => {
+                const parent = textNode.parentNode;
+                const text = textNode.textContent;
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                const highlightedText = text.replace(regex, '<span class="search-highlight">$1</span>');
+                
+                if (highlightedText !== text) {
+                    const wrapper = document.createElement('span');
+                    wrapper.innerHTML = highlightedText;
+                    parent.replaceChild(wrapper, textNode);
+                }
+            });
+        }
+
+        function clearHighlights() {
+            const highlights = document.querySelectorAll('.search-highlight');
+            highlights.forEach(highlight => {
+                const parent = highlight.parentNode;
+                parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
+                parent.normalize();
+            });
+        }
+
+        function printDocument() {
+            window.print();
+        }
+
+        function exportToPDF() {
+            // This would require a PDF generation library
+            alert('Funcionalidade de exportação para PDF será implementada em versão futura.');
+        }
+        
+		    // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('bem-vindo');
+        });
+		
+    </script>  -->
+</body>
+</html>
+
