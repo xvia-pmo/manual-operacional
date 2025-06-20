@@ -371,6 +371,7 @@
                 left: 0;
                 right: 0;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
             }
             
             .nav-content.show { 
@@ -515,7 +516,7 @@
     </header>
 
     <nav class="nav-container">
-        <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+        <button class="hamburger">☰</button>
         <div class="nav-content">
             <div class="nav">
                 <a href="#visao-geral" class="nav-item" onclick="showSection('visao-geral', this)">Visão Geral</a>
@@ -1577,7 +1578,7 @@ nas 10 sections
 
 
     <script>
-        // Melhorado: Menu Mobile e Navegação
+        // Função para mostrar seções
         function showSection(sectionId, navItem) {
             // Hide all sections
             const sections = document.querySelectorAll('.section');
@@ -1598,15 +1599,19 @@ nas 10 sections
             
             // Close mobile menu after selection
             const navContent = document.querySelector('.nav-content');
+            const hamburger = document.querySelector('.hamburger');
             if (navContent && navContent.classList.contains('show')) {
                 navContent.classList.remove('show');
+                if (hamburger) {
+                    hamburger.innerHTML = '☰';
+                }
             }
             
             // Scroll to top smoothly
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Melhorado: Toggle do Menu Mobile
+        // Função para toggle do menu mobile
         function toggleMobileMenu() {
             const navContent = document.querySelector('.nav-content');
             const hamburger = document.querySelector('.hamburger');
@@ -1621,7 +1626,7 @@ nas 10 sections
             }
         }
 
-        // Melhorado: Fechar menu ao clicar fora
+        // Função para fechar menu ao clicar fora
         function handleOutsideClick(event) {
             const navContent = document.querySelector('.nav-content');
             const hamburger = document.querySelector('.hamburger');
@@ -1629,12 +1634,14 @@ nas 10 sections
             if (navContent && navContent.classList.contains('show')) {
                 if (!navContent.contains(event.target) && !hamburger.contains(event.target)) {
                     navContent.classList.remove('show');
-                    hamburger.innerHTML = '☰';
+                    if (hamburger) {
+                        hamburger.innerHTML = '☰';
+                    }
                 }
             }
         }
 
-        // Função de busca melhorada
+        // Função de busca
         function searchContent() {
             const searchInput = document.getElementById('searchInput');
             if (!searchInput) return;
@@ -1643,14 +1650,12 @@ nas 10 sections
             const sections = document.querySelectorAll('.section');
             let searchResults = [];
             
-            // Clear previous search highlights
             clearHighlights();
             
             if (searchTerm.length < 2) {
                 return;
             }
             
-            // Search through all sections
             sections.forEach(section => {
                 const content = section.textContent.toLowerCase();
                 if (content.includes(searchTerm)) {
@@ -1659,7 +1664,6 @@ nas 10 sections
                 }
             });
             
-            // Show first result if found
             if (searchResults.length > 0) {
                 showSection(searchResults[0]);
                 const activeNav = document.querySelector(`[href="#${searchResults[0]}"]`);
@@ -1714,12 +1718,15 @@ nas 10 sections
             alert('Funcionalidade de exportação para PDF será implementada em versão futura.');
         }
         
-        // Inicialização melhorada
+        // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
             // Configurar menu mobile
             const hamburger = document.querySelector('.hamburger');
             if (hamburger) {
-                hamburger.addEventListener('click', toggleMobileMenu);
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleMobileMenu();
+                });
             }
             
             // Configurar clique fora do menu
@@ -1729,6 +1736,7 @@ nas 10 sections
             document.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape') {
                     const navContent = document.querySelector('.nav-content');
+                    const hamburger = document.querySelector('.hamburger');
                     if (navContent && navContent.classList.contains('show')) {
                         navContent.classList.remove('show');
                         if (hamburger) hamburger.innerHTML = '☰';
